@@ -9,4 +9,4 @@ def sigmoid(x: list | float) -> np.ndarray | float:
     if type(x) is list:
         x = np.asarray(x, dtype=float)
         
-    return 1 / (1 + np.exp(-x))
+    return np.where(x >= 0, 1 / (1 + np.exp(-x)), np.exp(x) / (1 + np.exp(x)))
